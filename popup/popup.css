@@ -1,0 +1,118 @@
+:root {
+  color-scheme: light dark;
+  --bg: #ffffff;
+  --panel: #f3f4f8;
+  --text: #1c1e26;
+  --muted: #667085;
+  --line: #dde0ea;
+  --accent: #4f46e5;
+  --accent-text: #ffffff;
+  --danger: #d92d3a;
+  --field: #ffffff;
+}
+
+@media (prefers-color-scheme: dark) {
+  :root {
+    --bg: #1b1d24;
+    --panel: #262932;
+    --text: #e8eaf1;
+    --muted: #98a0b3;
+    --line: #363a46;
+    --accent: #7c83ff;
+    --accent-text: #11131a;
+    --danger: #ff6b76;
+    --field: #14161c;
+  }
+}
+
+* { box-sizing: border-box; }
+
+html, body { margin: 0; }
+
+body {
+  width: 360px;
+  background: var(--bg);
+  color: var(--text);
+  font: 13px/1.45 system-ui, -apple-system, "Segoe UI", sans-serif;
+}
+
+header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 10px;
+  padding: 12px 14px;
+  border-bottom: 1px solid var(--line);
+}
+
+.brand { display: flex; align-items: center; gap: 8px; font-weight: 700; font-size: 15px; letter-spacing: .01em; }
+.dot { width: 10px; height: 10px; border-radius: 3px; background: linear-gradient(135deg, #7c83ff, #19c3b5); }
+.host { color: var(--muted); max-width: 190px; overflow: hidden; text-overflow: ellipsis; white-space: nowrap; }
+
+main, section { padding: 12px 14px 10px; }
+section p { margin: 0; color: var(--muted); }
+
+.buttons { display: grid; grid-template-columns: 1fr 1fr; gap: 8px; }
+
+button {
+  font: inherit;
+  color: var(--text);
+  background: var(--panel);
+  border: 1px solid var(--line);
+  border-radius: 8px;
+  padding: 9px 10px;
+  cursor: pointer;
+}
+button:hover { border-color: var(--accent); }
+button.primary { background: var(--accent); border-color: var(--accent); color: var(--accent-text); font-weight: 600; }
+button.link { background: none; border: 0; padding: 4px 0; color: var(--muted); }
+button.link:hover { color: var(--text); text-decoration: underline; }
+button.link.danger:hover { color: var(--danger); }
+button:disabled { opacity: .5; cursor: default; }
+
+.msg { margin: 10px 0 0; padding: 8px 10px; border-radius: 8px; background: var(--panel); color: var(--text); }
+.msg.error { color: var(--danger); }
+
+.switches { margin-top: 12px; display: grid; gap: 6px; }
+
+.switch { display: flex; align-items: center; gap: 8px; cursor: pointer; }
+.switch input { width: 15px; height: 15px; accent-color: var(--accent); margin: 0; }
+.switch.small { font-size: 12px; color: var(--muted); }
+
+.summary { margin: 10px 0 4px; color: var(--muted); }
+
+details { margin-top: 8px; border-top: 1px solid var(--line); padding-top: 8px; }
+summary { cursor: pointer; font-weight: 600; user-select: none; }
+
+textarea {
+  display: block;
+  width: 100%;
+  min-height: 120px;
+  margin-top: 8px;
+  padding: 8px;
+  resize: vertical;
+  background: var(--field);
+  color: var(--text);
+  border: 1px solid var(--line);
+  border-radius: 8px;
+  font: 12px/1.45 ui-monospace, Consolas, "Courier New", monospace;
+  white-space: pre;
+}
+textarea:focus { outline: 2px solid var(--accent); outline-offset: -1px; }
+
+.cssfoot { display: flex; justify-content: space-between; align-items: center; margin-top: 6px; }
+.status { color: var(--muted); font-size: 12px; }
+
+.badge { display: inline-block; min-width: 18px; padding: 0 6px; border-radius: 9px; background: var(--panel); color: var(--muted); font-size: 11px; text-align: center; }
+
+ul { list-style: none; margin: 8px 0 0; padding: 0; display: grid; gap: 6px; }
+li { display: flex; align-items: center; gap: 8px; padding: 6px 8px; background: var(--panel); border-radius: 8px; }
+li .name { flex: 1; min-width: 0; overflow: hidden; text-overflow: ellipsis; white-space: nowrap; }
+li select { font: inherit; background: var(--field); color: var(--text); border: 1px solid var(--line); border-radius: 6px; padding: 2px 4px; }
+li button { padding: 2px 8px; }
+li.empty { color: var(--muted); background: none; padding-left: 0; }
+
+#transfer { border-top: 1px solid var(--line); }
+#transfer .stack { display: grid; gap: 8px; }
+
+footer { display: flex; justify-content: space-between; margin-top: 12px; padding-top: 8px; border-top: 1px solid var(--line); }

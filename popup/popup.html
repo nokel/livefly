@@ -1,0 +1,67 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>livefly</title>
+  <link rel="stylesheet" href="popup.css">
+</head>
+<body>
+  <header>
+    <div class="brand"><span class="dot"></span>livefly</div>
+    <div class="host" id="host"></div>
+  </header>
+
+  <section id="unsupported" hidden>
+    <p>livefly cannot run on this page. Open a normal website (http or https) and try again.</p>
+  </section>
+
+  <main id="main" hidden>
+    <div class="buttons">
+      <button type="button" id="edit" class="primary">Edit page</button>
+      <button type="button" id="remember" title="Record a popup being dismissed so it closes by itself next time">Remember state</button>
+    </div>
+
+    <p class="msg" id="message" hidden></p>
+
+    <div class="switches">
+      <label class="switch"><input type="checkbox" id="enabled"><span>Apply my edits on this site</span></label>
+      <label class="switch"><input type="checkbox" id="popupsOn"><span>Auto-close remembered popups</span></label>
+    </div>
+
+    <p class="summary" id="summary"></p>
+
+    <details id="cssBox" open>
+      <summary>Custom CSS for this site</summary>
+      <textarea id="css" spellcheck="false" placeholder=".promo-banner { display: none; }&#10;body { font-family: Georgia, serif; }"></textarea>
+      <div class="cssfoot">
+        <label class="switch small"><input type="checkbox" id="force"><span>Force !important</span></label>
+        <span class="status" id="cssStatus"></span>
+      </div>
+    </details>
+
+    <details id="popupBox">
+      <summary>Remembered popups <span class="badge" id="popupCount">0</span></summary>
+      <ul id="popupList"></ul>
+    </details>
+
+    <footer>
+      <button type="button" id="reset" class="link danger">Reset this site</button>
+      <button type="button" id="options" class="link">All sites</button>
+    </footer>
+  </main>
+
+  <section id="transfer">
+    <div class="stack">
+      <button type="button" id="export">Export saved changes</button>
+      <button type="button" id="import">Import changes</button>
+      <input type="file" id="file" accept="application/json,.json" hidden>
+    </div>
+    <p class="msg" id="transferMessage" hidden></p>
+  </section>
+
+  <script src="../shared.js"></script>
+  <script src="../backup.js"></script>
+  <script src="popup.js"></script>
+</body>
+</html>

@@ -1,0 +1,46 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>livefly options</title>
+  <link rel="stylesheet" href="options.css">
+</head>
+<body>
+  <div class="wrap">
+    <h1><span class="dot"></span>livefly</h1>
+    <p class="lead">Every edit lives in this browser profile and is applied again on each visit. Nothing leaves your computer.</p>
+
+    <section class="card">
+      <label class="switch"><input type="checkbox" id="paused"><span>Pause livefly everywhere. Use this if a site ever misbehaves and you want to rule livefly out.</span></label>
+    </section>
+
+    <section class="card">
+      <div class="head">
+        <h2>Sites <span class="badge" id="count">0</span></h2>
+        <div class="tools">
+          <button type="button" id="export">Export saved changes</button>
+          <button type="button" id="import">Import changes</button>
+          <input type="file" id="file" accept="application/json,.json" hidden>
+        </div>
+      </div>
+      <p class="msg" id="message" hidden></p>
+      <table>
+        <thead>
+          <tr><th>Site</th><th>Edits</th><th>Popups</th><th>Custom CSS</th><th>On</th><th></th></tr>
+        </thead>
+        <tbody id="rows"></tbody>
+      </table>
+      <p class="empty" id="empty" hidden>No sites yet. Open any website, click the livefly icon and choose Edit page.</p>
+    </section>
+
+    <section class="card">
+      <h2>Shortcuts</h2>
+      <p>Alt+Shift+E opens the editor on the current page. Alt+Shift+P pauses or resumes edits on the current site. You can change both at <code>vivaldi://extensions/shortcuts</code>.</p>
+    </section>
+  </div>
+  <script src="../shared.js"></script>
+  <script src="../backup.js"></script>
+  <script src="options.js"></script>
+</body>
+</html>
